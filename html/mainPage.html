@@ -6,7 +6,11 @@
 </head>
 <body class="bodyContainer">
     <main class="mainContainer">
-        <div class="containerHero"></div>
+        <div class="containerHero">
+                <div class="progress-bar progressHero">
+                        <span class="progress-bar-fill" style="width: 100%"></span>
+                </div>
+        </div>
         <div class="containerFight">
             <div>
                 <form method="POST">
@@ -27,7 +31,7 @@
                         </div>
                     </div>
                     <div class="buttonGo margins"> 
-                        <button class="button buttonGoStyle" type="submit">Вперед!!</button>
+                        <button class="button buttonGoStyle turnButton" type="submit">Вперед!!</button>
                     </div>
                 </form>
             </div>
@@ -36,7 +40,11 @@
 
             </div>
         </div>
-        <div class="containerEnemy"></div>
+        <div class="containerEnemy">
+                <div class="progress-bar progressEnemy">
+                        <span class="progress-bar-fill" style="width: 100%"></span>
+                </div>
+        </div>
     </main>
     <footer class="footerContainer">
         <div class="containerChat">
@@ -46,18 +54,39 @@
             <ul class="listOfUsers"></ul>
         </div>
     </footer>
-<<<<<<< HEAD
 <script src="/js/onlineUsers.js"></script>
 <script>
-    var xhr = new XMLHttpRequest();
-            
-    var body = 'token=' + localStorage.getItem('token');
-    xhr.open("POST", '/fight', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.send(body);
+    const turnButton = document.querySelector('.turnButton');
+    const progressEnemy =  document.querySelector('.progressEnemy .progress-bar-fill');
+    const progressHero = document.querySelector('.progressHero .progress-bar-fill');
+
+    turnButton.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        let atackRadio = document.querySelector('.attackBlock input[name=attack]:checked');
+        let defenseRadio = document.querySelector('.protectionBlock input[name=protection]:checked');
+        let makeTurn = false;
+        let timer = setInterval( function() {
+            let xhr = new XMLHttpRequest();
+            let body = 'token=' + localStorage.getItem('token') +
+            '&combat_id=' + localStorage.getItem('combat_id') +
+            '&turn={"hit":"' + atackRadio.value + '", "blocks":"'+ defenseRadio.value + '"}';
+            xhr.open("POST", '/turn', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send(body);
+            xhr.onload = function() {
+                makeTurn = JSON.parse(xhr.response).combat.turn_status || false;
+                if(makeTurn === true) {
+                    clearInterval(timer);
+                }
+                progressHero.style.width = JSON.parse(xhr.response).combat.you.health / 30 * 100 + '%';
+                progressEnemy.style.width = JSON.parse(xhr.response).combat.enemy.health / 30 * 100 + '%';
+            }
+        }, 1000)
+
+        });
+
 </script>
-=======
 <script src="./js/onlineUsers.js"></script>
->>>>>>> f55cc5fbf4dcff70b3c9f28c92ae8bdffe4f66f8
 </body>
 

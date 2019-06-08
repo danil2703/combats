@@ -1,1 +1,101 @@
-[]
+[
+    {
+        "id": "oGYDnm",
+        "status": "progress",
+        "players": [
+            {
+                "id": "VBf4CR",
+                "token": "SFMJg1rDeg",
+                "username": "danil",
+                "last_active": 1560025027312,
+                "health": 26
+            },
+            {
+                "id": "7Bty4s",
+                "token": "kwJkXgqQR_",
+                "username": "anton",
+                "last_active": 1560025040062,
+                "health": 25
+            }
+        ],
+        "turns": [
+            [
+                {
+                    "user": {
+                        "id": "VBf4CR",
+                        "token": "SFMJg1rDeg",
+                        "username": "danil",
+                        "last_active": 1560025046141
+                    },
+                    "turn": {
+                        "hit": "1",
+                        "blocks": "1"
+                    }
+                },
+                {
+                    "user": {
+                        "id": "7Bty4s",
+                        "token": "kwJkXgqQR_",
+                        "username": "anton",
+                        "last_active": 1560025064518
+                    },
+                    "turn": {
+                        "hit": "4",
+                        "blocks": "4"
+                    }
+                }
+            ],
+            [
+                {
+                    "user": {
+                        "id": "VBf4CR",
+                        "token": "SFMJg1rDeg",
+                        "username": "danil",
+                        "last_active": 1560025065144
+                    },
+                    "turn": {
+                        "hit": "1",
+                        "blocks": "1"
+                    }
+                }
+            ]
+        ],
+        "results": [
+            [
+                {
+                    "origin": {
+                        "id": "VBf4CR",
+                        "token": "SFMJg1rDeg",
+                        "username": "danil",
+                        "last_active": 1560025046141
+                    },
+                    "target": {
+                        "id": "7Bty4s",
+                        "token": "kwJkXgqQR_",
+                        "username": "anton",
+                        "last_active": 1560025064518
+                    },
+                    "hit": "1",
+                    "blocked": false
+                },
+                {
+                    "origin": {
+                        "id": "7Bty4s",
+                        "token": "kwJkXgqQR_",
+                        "username": "anton",
+                        "last_active": 1560025064518
+                    },
+                    "target": {
+                        "id": "VBf4CR",
+                        "token": "SFMJg1rDeg",
+                        "username": "danil",
+                        "last_active": 1560025046141
+                    },
+                    "hit": "4",
+                    "blocked": false
+                }
+            ]
+        ],
+        "turn_start": 1560025027315
+    }
+]
